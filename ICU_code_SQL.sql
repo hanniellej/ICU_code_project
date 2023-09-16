@@ -1,4 +1,4 @@
--- ADVANCE QUERIES
+
 -- the number of patients who have been admitted x times  
 select distinct n.HADM_ID, count( distinct n.subject_id)
 from (select p.subject_id, count(distinct A.HADM_ID) as HADM_ID from admissions A join patients p where p.subject_id=a.subject_id group by p.SUBJECT_ID) n group by n.HADM_ID;
@@ -20,7 +20,7 @@ SELECT COUNT(DISTINCT new_code) FROM T AS  numUnique_diagnoses ;
 -- 	count the number of unique diagnoses for each patient in T
 SELECT T.new_code, COUNT(DISTINCT p.subject_id )  AS   numPatient_diagnoses FROM patients p join T  ON p.SUBJECT_ID=T.SUBJECT_ID GROUP BY T.new_code ;
 
--- 	Temporary table T1 withthe first three digits in every diagnosis in addition to any letters   
+-- 	Temporary table T1 with the first three digits in every diagnosis in addition to any letters   
 
 create temporary table T1 as
 select *, 
